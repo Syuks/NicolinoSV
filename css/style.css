@@ -1,0 +1,25 @@
+.container{
+    margin: auto;
+    max-width: 100%;
+    padding-bottom: 30px;
+}
+
+.page-link {
+color: white !important;
+}
+
+tbody {
+    color: white;
+    background-color: #212121;
+    text-align: center;
+}
+
+.leftAligned {
+    text-align: left;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-item.active .page-link {
+    background-color:#7e7e7e
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-item.active .page-link:focus {
+    background-color:#7e7e7e
+}
