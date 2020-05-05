@@ -28,7 +28,8 @@
           "VALVE_0:4:1726367361\u0000",
           "VALVE_0:4:1566694406\u0000",
           "VALVE_0:4:1987159302\u0000",
-          "VALVE_0:4:1222794246\u0000"
+          "VALVE_0:4:1222794246\u0000",
+          "VALVE_0:4:1383855494\u0000"
        ],
        "kills":0,
        "deaths":0,
@@ -47,7 +48,8 @@
           "VALVE_0:4:1315692166\u0000",
           "VALVE_0:4:590667654\u0000",
           "VALVE_0:4:1754625542\u0000",
-          "VALVE_0:4:928904710\u0000"
+          "VALVE_0:4:928904710\u0000",
+          "VALVE_0:4:979203590\u0000"
        ],
        "kills":0,
        "deaths":0,
@@ -115,8 +117,17 @@
        "name":"FrankCastle",
        "uniques":[
           "VALVE_0:4:1665719430\u0000",
+          "VALVE_0:4:1121737862\u0000",
+          "VALVE_0:4:1446593926\u0000",
+          "VALVE_0:4:2111698438\u0000",
+          "VALVE_0:4:1895128582\u0000",
+          "VALVE_0:4:1179212934\u0000",
+          "VALVE_0:4:171630086\u0000",
+          "VALVE_0:4:2139025798\u0000",
           "VALVE_0:4:81190534\u0000",
-          "VALVE_0:4:2139025798\u0000"
+          "VALVE_0:4:1123311110\u0000",
+          "VALVE_0:4:886398598\u0000",
+          "VALVE_0:4:1635742086\u0000"
        ],
        "kills":0,
        "deaths":0,
@@ -132,7 +143,9 @@
        "name":"Vienes y te vas",
        "uniques":[
           "VALVE_0:4:925626758\u0000",
-          "VALVE_0:4:1212931334\u0000"
+          "VALVE_0:4:1212931334\u0000",
+          "VALVE_0:4:1860295686\u0000",
+          "VALVE_0:4:1853742854\u0000"
        ],
        "kills":0,
        "deaths":0,
@@ -376,7 +389,8 @@
           "VALVE_0:4:959143686\u0000",
           "VALVE_0:4:2137921539\u0000",
           "VALVE_0:4:1724406918\u0000",
-          "VALVE_0:4:427718150\u0000"
+          "VALVE_0:4:427718150\u0000",
+          "VALVE_0:4:1869897222\u0000"
        ],
        "kills":0,
        "deaths":0,
@@ -435,5 +449,87 @@
        "tks":0,
        "bDefused":0,
        "bExplosions":0
-    }
+    },
+    {
+      "name":"Nacho",
+      "uniques":[
+         "STEAM_0:0:10176329\u0000",
+         "STEAM_0:0:1457068094\u0000"
+      ],
+      "kills":0,
+      "deaths":0,
+      "dmg":0,
+      "shots":0,
+      "hits":0,
+      "hs":0,
+      "tks":0,
+      "bDefused":0,
+      "bExplosions":0
+   },
+   {
+      "name":"est3ban",
+      "uniques":[
+         "STEAM_0:0:185350379\u0000",
+         "STEAM_0:0:1506117049\u0000"
+      ],
+      "kills":0,
+      "deaths":0,
+      "dmg":0,
+      "shots":0,
+      "hits":0,
+      "hs":0,
+      "tks":0,
+      "bDefused":0,
+      "bExplosions":0
+   },
+   {
+      "name":"LaTotina",
+      "uniques":[
+         "VALVE_0:4:1600636545\u0000",
+         "VALVE_0:4:1566825478\u0000"
+      ],
+      "kills":0,
+      "deaths":0,
+      "dmg":0,
+      "shots":0,
+      "hits":0,
+      "hs":0,
+      "tks":0,
+      "bDefused":0,
+      "bExplosions":0
+   },
+   {
+      "name":"cacerola anda acostate",
+      "uniques":[
+         "VALVE_0:4:132176902\u0000",
+         "VALVE_0:4:220946182\u0000",
+         "VALVE_0:4:2058023302\u0000"
+      ],
+      "kills":0,
+      "deaths":0,
+      "dmg":0,
+      "shots":0,
+      "hits":0,
+      "hs":0,
+      "tks":0,
+      "bDefused":0,
+      "bExplosions":0
+   },
+   {
+      "name":"Peperoni",
+      "uniques":[
+         "VALVE_0:4:1095425286\u0000",
+         "VALVE_0:4:617307398\u0000",
+         "VALVE_0:4:321543942\u0000"
+      ],
+      "kills":0,
+      "deaths":0,
+      "dmg":0,
+      "shots":0,
+      "hits":0,
+      "hs":0,
+      "tks":0,
+      "bDefused":0,
+      "bExplosions":0
+   }
  ]
