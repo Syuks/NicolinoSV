@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Nicolino SV</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/cs.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- MDBootstrap Datatables  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/fh-3.1.6/datatables.min.css">
+</head>
+
+<body class="white-text" style="background-color: #272A33;">
+
+  <!-- Start your project here-->
+  
+  <!-- NAVBAR-->
+  <nav style="background-color: #24262F;" class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html"><img src="img/cs.ico" height="30" alt="cs logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Ranking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.dropbox.com/sh/8cwcsq72dozq259/AACZDObJiDxYmbRrA-7Z5MnDa?dl=0" target="_blank">Mapas</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="torneo.html">Torneos<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 style="text-align:center; margin:20px">NicolinoSV - Torneo 1</h1>
+
+  <iframe src="https://challonge.com/NicolinoSvTorneo1/module" width="100%" height="400px" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+  
+  <h2 style="text-align:center; margin-top:20px">Estadísticas</h2>
+
+    <table id="myTable" class="table-sm table-hover table-dark text-nowrap" width=100%>
+        <thead style="background-color:#222732; text-align:center;">
+        <tr>
+            <th></th>
+            <th style="text-align:left;">Nombre</th>
+            <th>Kills</th>
+            <th>Deaths</th>
+            <th>K/D</th>
+            <th>Damage</th>      
+            <th>Disparos</th>
+            <th>Aciertos</th>
+            <th>Accuracy</th>
+            <th>Headshots</th>
+            <th>Hs/Aciertos</th>
+            <th>TeamKills</th>
+            <th>Defused</th>
+            <th>C4</th>
+        </tr>
+        </thead>
+        <tbody style="background-color: #272A33;"></tbody>
+    </table>
+ 
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Datatables and Fixed Table Header  -->
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
+  
+  <script>
+    //Initialize Datatable
+    $(document).ready(function () {
+        var t = $('#myTable').DataTable({        
+                  "iDisplayLength": 25,
+                  "order": [[ 2, "desc" ]],
+                  "pagingType": "simple_numbers",
+                  "columnDefs": [
+                    { "width": "7%", "targets": [2,3,4,5,6,7,8,9,10,11,12,13] }, //para que todos los datos tengan el mismo ancho
+                    { "width": "2%", "targets": [0] },
+                    { "targets": [0,1] , className: "leftAligned"}, //les doy un nombre de css a estar columnas para ponerlas sobre la izquierda
+                    { "orderSequence": [ "desc", "asc" ], "targets": [2,3,4,5,6,7,8,9,10,11,12,13] }, //para que apenas apretes se ordene de mayor a menor
+                    { "searchable": false, "orderable": false, "targets": 0 } //para que no busquen ni ordenen la columna del index
+                  ],
+                  fixedHeader: true,
+                  //responsive: true
+                });
+        $('.dataTables_length').addClass('bs-select');
+        
+        //Get csstats data
+        var xmlhttp = new XMLHttpRequest();
+        var url = "torneoData.json";
+        
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                GetRepeatedPlayers(myArr);
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+  
+        //Get repeated players data
+        function GetRepeatedPlayers (csstats) {
+          var xmlhttp2 = new XMLHttpRequest();
+          var url = "tourneyrepeatedPlayers.json";
+          
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  var playerIndex = JSON.parse(this.responseText);
+                  PopulateTable(csstats, playerIndex);
+              }
+          };
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send();
+        }
+  
+        //Data Handling
+        function PopulateTable(arr, repeatedPlayersIndex) {
+          
+          jsonIteration: //etiqueta para poder hacer continue directamente a este loop desde otro for loop interno
+          for (i in arr){
+            
+            //check if i is one of the repeatedPlayers
+            for (r in repeatedPlayersIndex) {
+              for (u in repeatedPlayersIndex[r].uniques){
+                if (arr[i].unique == repeatedPlayersIndex[r].uniques[u]){
+                  repeatedPlayersIndex[r].kills += arr[i].kills;
+                  repeatedPlayersIndex[r].deaths += arr[i].deaths;
+                  repeatedPlayersIndex[r].dmg += arr[i].dmg;
+                  repeatedPlayersIndex[r].shots += arr[i].shots;
+                  repeatedPlayersIndex[r].hits += arr[i].hits;
+                  repeatedPlayersIndex[r].hs += arr[i].hs;
+                  repeatedPlayersIndex[r].tks += arr[i].tks;
+                  repeatedPlayersIndex[r].bDefused += arr[i].bDefused;
+                  repeatedPlayersIndex[r].bExplosions += arr[i].bExplosions;
+                  continue jsonIteration;
+                }
+              }
+            }
+  
+            //Si i no era uno de los repetidos agregarlo a la tabla ahora:
+            AddTableRow(arr[i]);
+            
+          }
+  
+          //ahora agregar los jugadores con nombre repetido, los cuales fuimos sumando la data que conseguiamos de cada uno
+          for(i in repeatedPlayersIndex){
+            AddTableRow(repeatedPlayersIndex[i])
+          }
+          t.draw(false);
+      }
+    
+      function AddTableRow(arr) {
+        //Kills per Death
+        var kd = 0;
+        if (arr.deaths == 0) {
+          kd = arr.kills;
+        } else {
+          kd = (arr.kills/arr.deaths).toFixed(2);
+        }
+  
+        //Accuracy
+        var acc = 0;
+        if (arr.shots == 0) {
+          acc = 0;
+        } else {
+          acc = (arr.hits/arr.shots).toFixed(2);
+        }
+  
+        //Headshot%
+        var hspercent = 0;
+        if (arr.hits == 0) {
+          hspercent = 0;
+        } else {
+          hspercent = (arr.hs/arr.hits).toFixed(2);
+        }
+  
+        t.row.add( [
+          i,
+          arr.name,
+          arr.kills,
+          arr.deaths,
+          kd,
+          arr.dmg,
+          arr.shots,
+          arr.hits,
+          acc,
+          arr.hs,
+          hspercent,
+          arr.tks,
+          arr.bDefused,
+          arr.bExplosions
+        ] );
+      }
+  
+        //para que la columna del index siempre empiece del 1
+        t.on( 'order.dt', function () {
+          t.column(0, {order:'applied'}).nodes().each( function (cell, i) {
+              cell.innerHTML = i+1;
+          } );
+      } ).draw();
+      });
+    </script>
+
+</body>
+</html>
