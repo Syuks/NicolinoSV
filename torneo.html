@@ -53,6 +53,55 @@
   
   <h2 style="text-align:center; margin-top:20px">Estadísticas</h2>
 
+  <div class="container row">
+
+    <!-- Dropdown 1 -->
+    <div>
+      <button class="btn btn-primary dropdown-toggle mr-3" type="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">Ronda Incial</button>
+
+      <div class="dropdown-menu">
+        <button onclick="fetchJsonData('torneoData-partida1.json')" class="dropdown-item">Sacachispas-Topolinos</button>
+        <button onclick='fetchJsonData("torneoData-partida2.json")' class="dropdown-item">KCHORROS-4G</button>
+        <button onclick='fetchJsonData("torneoData-partida3.json")' class="dropdown-item">Topolinos-4G</button>
+        <button onclick='fetchJsonData("torneoData-partida4.json")' class="dropdown-item">KCHORROS-Sacachispas</button>
+        <button onclick='fetchJsonData("torneoData-partida5.json")' class="dropdown-item">Sacachispas-4G</button>
+        <button onclick='fetchJsonData("torneoData-partida6.json")' class="dropdown-item">Topolinos-KCHORROS</button>
+        <div class="dropdown-divider"></div>
+        <button onclick='fetchJsonData("torneoData-rondaInicial.json")' class="dropdown-item">Totales</button>
+      </div>
+    </div>
+    
+    <!-- Dropdown 2 -->
+    <div>
+      <button class="btn btn-primary dropdown-toggle mr-3" type="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">Play Offs</button>
+
+      <div class="dropdown-menu">
+        <button onclick='fetchJsonData("torneoData-semifinal1.json")' class="dropdown-item">Semifinal-1</button>
+        <button onclick='fetchJsonData("torneoData-semifinal2.json")' class="dropdown-item">Semifinal-2</button>
+        <button onclick='fetchJsonData("torneoData-3erpuesto.json")' class="dropdown-item">3er Puesto</button>
+        <button onclick='fetchJsonData("torneoData-final.json")' class="dropdown-item">Final</button>
+        <div class="dropdown-divider"></div>
+        <button onclick='fetchJsonData("torneoData-playoffs.json")' class="dropdown-item">Totales</button>
+      </div>
+    </div>
+
+    <!-- Dropdown 3 -->
+    <div>
+      <button class="btn btn-primary dropdown-toggle mr-3" type="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">Totales</button>
+
+      <div class="dropdown-menu">
+        <button onclick='fetchJsonData("torneoData-rondaInicial.json")' class="dropdown-item">Ronda Inicial</button>
+        <button onclick='fetchJsonData("torneoData-playoffs.json")' class="dropdown-item">PlayOffs</button>
+        <div class="dropdown-divider"></div>
+        <button onclick='fetchJsonData("torneoData-totales.json")' class="dropdown-item">Totales Torneo</button>
+      </div>
+    </div>
+    
+  </div>
+
     <table id="myTable" class="table-sm table-hover table-dark text-nowrap" width=100%>
         <thead style="background-color:#222732; text-align:center;">
         <tr>
@@ -90,9 +139,11 @@
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
   
   <script>
+    var t;
+
     //Initialize Datatable
     $(document).ready(function () {
-        var t = $('#myTable').DataTable({        
+        t = $('#myTable').DataTable({        
                   "iDisplayLength": 25,
                   "order": [[ 2, "desc" ]],
                   "pagingType": "simple_numbers",
@@ -107,38 +158,51 @@
                   //responsive: true
                 });
         $('.dataTables_length').addClass('bs-select');
-        
-        //Get csstats data
-        var xmlhttp = new XMLHttpRequest();
-        var url = "torneoData.json";
-        
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var myArr = JSON.parse(this.responseText);
-                GetRepeatedPlayers(myArr);
-            }
-        };
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-  
-        //Get repeated players data
-        function GetRepeatedPlayers (csstats) {
-          var xmlhttp2 = new XMLHttpRequest();
-          var url = "tourneyrepeatedPlayers.json";
+
+        //para que la columna del index siempre empiece del 1
+        t.on( 'order.dt', function () {
+          t.column(0, {order:'applied'}).nodes().each( function (cell, i) {
+              cell.innerHTML = i+1;
+          } );
+      } ).draw();
+      //fetchJsonData("torneoData-rondaInicial.json");
+    });
+
+        function fetchJsonData(partida){
+          //Get csstats data
+          var xmlhttp = new XMLHttpRequest();
+          var url = partida;
           
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                  var playerIndex = JSON.parse(this.responseText);
-                  PopulateTable(csstats, playerIndex);
+                  var myArr = JSON.parse(this.responseText);
+                  GetRepeatedPlayers(myArr);
               }
           };
           xmlhttp.open("GET", url, true);
           xmlhttp.send();
         }
   
+        //Get repeated players data
+        function GetRepeatedPlayers (csstats) {
+          var xmlhttp2 = new XMLHttpRequest();
+          var url = "tourneyrepeatedPlayers.json";
+          
+          xmlhttp2.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  var playerIndex = JSON.parse(this.responseText);
+                  PopulateTable(csstats, playerIndex);
+              }
+          };
+          xmlhttp2.open("GET", url, true);
+          xmlhttp2.send();
+        }
+  
         //Data Handling
         function PopulateTable(arr, repeatedPlayersIndex) {
           
+          t.clear();
+
           jsonIteration: //etiqueta para poder hacer continue directamente a este loop desde otro for loop interno
           for (i in arr){
             
@@ -164,7 +228,7 @@
             AddTableRow(arr[i]);
             
           }
-  
+          
           //ahora agregar los jugadores con nombre repetido, los cuales fuimos sumando la data que conseguiamos de cada uno
           for(i in repeatedPlayersIndex){
             AddTableRow(repeatedPlayersIndex[i])
@@ -196,8 +260,8 @@
         } else {
           hspercent = (arr.hs/arr.hits).toFixed(2);
         }
-  
-        t.row.add( [
+        if (arr.deaths != 0) { //para limpiar espectadores y repeated players
+          t.row.add( [
           i,
           arr.name,
           arr.kills,
@@ -213,15 +277,8 @@
           arr.bDefused,
           arr.bExplosions
         ] );
+        }
       }
-  
-        //para que la columna del index siempre empiece del 1
-        t.on( 'order.dt', function () {
-          t.column(0, {order:'applied'}).nodes().each( function (cell, i) {
-              cell.innerHTML = i+1;
-          } );
-      } ).draw();
-      });
     </script>
 
 </body>
