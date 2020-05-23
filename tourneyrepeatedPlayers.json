@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "id":0,
+        "name":"ClFlush | Lacholita'",
+        "uniques":[
+           "VALVE_0:4:955970950\u0000",
+           "VALVE_0:4:2086755334\u0000"
+        ],
+        "kills":0,
+        "deaths":0,
+        "dmg":0,
+        "shots":0,
+        "hits":0,
+        "hs":0,
+        "tks":0,
+        "bDefused":0,
+        "bExplosions":0
+     }
+]
