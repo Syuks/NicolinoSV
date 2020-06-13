@@ -40,16 +40,25 @@
         <li class="nav-item">
           <a class="nav-link" href="https://www.dropbox.com/sh/8cwcsq72dozq259/AACZDObJiDxYmbRrA-7Z5MnDa?dl=0" target="_blank">Mapas</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="torneo.html">Torneos<span class="sr-only">(current)</span></a>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Torneos</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="torneo1.html">Torneo 1</a>
+            <a class="dropdown-item" href="torneo2.html">Torneo 2</a>
+            <a class="dropdown-item" href="torneo3.html">Torneo 3</a>
+          </div>
         </li>
+
       </ul>
     </div>
   </nav>
 
-  <h1 style="text-align:center; margin:20px">NicolinoSV - Torneo 3</h1>
+  <h1 style="text-align:center; margin:20px">NicolinoSV - Torneo 1</h1>
 
-  <iframe src="https://challonge.com/NicolinoSv3/module" width="100%" height="400px" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+  <iframe src="https://challonge.com/NicolinoSvTorneo1/module" width="100%" height="400px" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
   
   <h2 style="text-align:center; margin-top:20px">Estadísticas</h2>
 
@@ -61,14 +70,14 @@
       aria-haspopup="true" aria-expanded="false">Ronda Incial</button>
 
       <div class="dropdown-menu">
-        <button onclick="fetchJsonData('torneoData-partida1.json')" class="dropdown-item">D-eagle-Erre TV</button>
-        <button onclick='fetchJsonData("torneoData-partida2.json")' class="dropdown-item">Bomberman-Blood&Bones</button>
-        <button onclick='fetchJsonData("torneoData-partida3.json")' class="dropdown-item">Blood&Bones-Erre TV</button>
-        <button onclick='fetchJsonData("torneoData-partida4.json")' class="dropdown-item">Blood&Bones-D-eagle</button>
-        <button onclick='fetchJsonData("torneoData-partida5.json")' class="dropdown-item">Bomberman-Erre TV</button>
-        <button onclick='fetchJsonData("torneoData-partida6.json")' class="dropdown-item">Bomberman-D-eagle</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida1.json")' class="dropdown-item">TOPOLINOS-Sacachispas</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida2.json")' class="dropdown-item">KCHORROS-4G</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida3.json")' class="dropdown-item">TOPOLINOS-4G</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida4.json")' class="dropdown-item">KCHORROS-Sacachispas</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida5.json")' class="dropdown-item">Sacachispas-4G</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-partida6.json")' class="dropdown-item">KCHORROS-TOPOLINOS</button>
         <div class="dropdown-divider"></div>
-        <button onclick='fetchJsonData("torneoData-rondaInicial.json")' class="dropdown-item">Totales</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-rondaInicial.json")' class="dropdown-item">Totales</button>
       </div>
     </div>
     
@@ -78,12 +87,12 @@
       aria-haspopup="true" aria-expanded="false">Play Offs</button>
 
       <div class="dropdown-menu">
-        <button onclick='fetchJsonData("torneoData-semifinal1.json")' class="dropdown-item">Semifinal-1</button>
-        <button onclick='fetchJsonData("torneoData-semifinal2.json")' class="dropdown-item">Semifinal-2</button>
-        <button onclick='fetchJsonData("torneoData-3erpuesto.json")' class="dropdown-item">Losers</button>
-        <button onclick='fetchJsonData("torneoData-final.json")' class="dropdown-item">Final</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-semifinal1.json")' class="dropdown-item">Semifinal-1</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-semifinal2.json")' class="dropdown-item">Semifinal-2</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-3erpuesto.json")' class="dropdown-item">3er Puesto</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-final.json")' class="dropdown-item">Final</button>
         <div class="dropdown-divider"></div>
-        <button onclick='fetchJsonData("torneoData-playoffs.json")' class="dropdown-item">Totales</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-playoffs.json")' class="dropdown-item">Totales</button>
       </div>
     </div>
 
@@ -93,10 +102,10 @@
       aria-haspopup="true" aria-expanded="false">Totales</button>
 
       <div class="dropdown-menu">
-        <button onclick='fetchJsonData("torneoData-rondaInicial.json")' class="dropdown-item">Ronda Inicial</button>
-        <button onclick='fetchJsonData("torneoData-playoffs.json")' class="dropdown-item">PlayOffs</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-rondaInicial.json")' class="dropdown-item">Ronda Inicial</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-playoffs.json")' class="dropdown-item">PlayOffs</button>
         <div class="dropdown-divider"></div>
-        <button onclick='fetchJsonData("torneoData-totales.json")' class="dropdown-item">Totales Torneo</button>
+        <button onclick='fetchJsonData("torneoData/torneo1/torneoData-totales.json")' class="dropdown-item">Totales Torneo</button>
       </div>
     </div>
     
@@ -186,7 +195,7 @@
         //Get repeated players data
         function GetRepeatedPlayers (csstats) {
           var xmlhttp2 = new XMLHttpRequest();
-          var url = "tourneyrepeatedPlayers.json";
+          var url = "torneoData/torneo1/tourneyrepeatedPlayers.json";
           
           xmlhttp2.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
