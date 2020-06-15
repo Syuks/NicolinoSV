@@ -1,10 +1,13 @@
 [
     {
         "id":0,
-        "name":"yuaN'",
+        "name":"FERRE",
         "uniques":[
-           "STEAM_0:0:302440149\u0000",
-           "VALVE_0:4:1290336515\u0000"
+           "VALVE_0:4:231365894\u0000",
+           "VALVE_0:4:1280787334\u0000",
+           "VALVE_0:4:624051078\u0000",
+           "VALVE_0:4:385893254\u0000",
+           "VALVE_0:4:1246184454\u0000"
         ],
         "kills":0,
         "deaths":0,
@@ -20,10 +23,9 @@
         "id":0,
         "name":"Alejo",
         "uniques":[
-           "VALVE_0:4:307388038\u0000",
-           "VALVE_0:4:950132358\u0000",
-           "VALVE_0:4:423293958\u0000",
-           "STEAM_0:0:2006441984\u0000"
+           "VALVE_0:4:896851462\u0000",
+           "VALVE_0:4:361028614\u0000",
+           "VALVE_0:4:1958441990\u0000"
         ],
         "kills":0,
         "deaths":0,
@@ -37,123 +39,12 @@
      },
      {
         "id":0,
-        "name":"asesino de vaginas",
+        "name":"fr4an",
         "uniques":[
-           "VALVE_0:4:1147329542\u0000",
-           "VALVE_0:4:1298417281\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"El Loco Stuart",
-        "uniques":[
-           "VALVE_0:4:527237891\u0000",
-           "STEAM_0:0:1120488908\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"El colo Liberman",
-        "uniques":[
-           "VALVE_0:4:986340614\u0000",
-           "VALVE_0:4:2013525761\u0000",
-           "VALVE_0:4:320239361\u0000",
-           "VALVE_0:4:1191143561\u0000",
-           "VALVE_0:4:399236358\u0000",
-           "VALVE_0:4:1192785665\u0000",
-           "VALVE_0:4:1331944454\u0000",
-           "STEAM_0:0:159860946\u0000",
-           "VALVE_0:4:351824009\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"franchu",
-        "uniques":[
-           "VALVE_0:4:1262591288\u0000",
-           "VALVE_0:4:255958328\u0000",
-           "VALVE_0:4:1665244472\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"Lorena y sus principes",
-        "uniques":[
-           "VALVE_0:4:1534451206\u0000",
-           "VALVE_0:4:1270576134\u0000",
-           "VALVE_0:4:283820934\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"midland",
-        "uniques":[
-           "VALVE_0:4:853662726\u0000",
-           "VALVE_0:4:732590470\u0000",
-           "VALVE_0:4:1868651526\u0000",
-           "VALVE_0:4:1549884422\u0000"
-        ],
-        "kills":0,
-        "deaths":0,
-        "dmg":0,
-        "shots":0,
-        "hits":0,
-        "hs":0,
-        "tks":0,
-        "bDefused":0,
-        "bExplosions":0
-     },
-     {
-        "id":0,
-        "name":"Vanlag",
-        "uniques":[
-           "VALVE_0:4:2036390918\u0000",
-           "VALVE_0:4:1523244294\u0000"
+           "VALVE_0:4:725720376\u0000",
+           "VALVE_0:4:457284920\u0000",
+           "VALVE_0:4:859938104\u0000",
+           "VALVE_0:4:255958328\u0000"
         ],
         "kills":0,
         "deaths":0,
